@@ -15,7 +15,12 @@
 'use strict';
 
 const assert = require('assert');
+const path = require('path');
+const NodeHttpAdapter = require('@pollyjs/adapter-node-http');
+const { setupMocha: setupPolly } = require('@pollyjs/core');
+const FSPersister = require('@pollyjs/persister-fs');
 const index = require('../src/index.js').main;
+
 
 describe('Index Tests', () => {
   it('index function is present', async () => {
@@ -30,6 +35,24 @@ describe('Index Tests', () => {
 });
 
 describe('Helix-Demo Query Generation', () => {
+  setupPolly({
+    recordIfMissing: false,
+    recordFailedRequests: true,
+    logging: false,
+    adapters: [NodeHttpAdapter],
+    persister: FSPersister,
+    persisterOptions: {
+      fs: {
+        recordingsDir: path.resolve(__dirname, 'fixtures/recordings'),
+      },
+    },
+    matchRequestsBy: {
+      headers: {
+        exclude: ['user-agent'],
+      },
+    },
+  });
+
   it('non-existing repo looks good', async () => {
     const result = await index({
       __ow_path: '/blog-posts/all',
