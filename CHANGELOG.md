@@ -1,3 +1,11 @@
+# 1.0.0 (2020-02-12)
+
+
+### Bug Fixes
+
+* **deps:** npm audit fix ([f113403](https://github.com/adobe/helix-query-index/commit/f113403b063eee8935f8a12c20ca37525bdc6e7a))
+* **index:** remove dead code from create-helix-service.js ([5181493](https://github.com/adobe/helix-query-index/commit/51814935e0c4daf4d515dcff0efbd14c5e423b43))
+
 ## [1.6.10](https://github.com/adobe/helix-service/compare/v1.6.9...v1.6.10) (2020-02-03)
 
 
