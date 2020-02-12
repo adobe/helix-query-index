@@ -30,6 +30,16 @@ describe('Index Tests', () => {
 });
 
 describe('Helix-Demo Query Generation', () => {
+  it('non-existing repo looks good', async () => {
+    const result = await index({
+      __ow_path: '/blog-posts/all',
+      __hlx_owner: 'trieloff',
+      __hlx_repo: 'helix-foo',
+      __hlx_ref: '3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3',
+    });
+    assert.equal(result.statusCode, 404);
+  });
+
   it('all query URL looks good', async () => {
     const result = await index({
       __ow_path: '/blog-posts/all',
@@ -50,7 +60,7 @@ describe('Helix-Demo Query Generation', () => {
       __hlx_owner: 'trieloff',
       __hlx_repo: 'helix-demo',
       __hlx_ref: '3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3',
-      author: 'Lars'
+      author: 'Lars',
     });
 
     assert.equal(result.statusCode, 307);

@@ -42,10 +42,23 @@ async function main(params) {
     return {
       statusCode: 404,
       body: 'Invalid index or query or missing owner, repo, and ref.',
+      headers: {
+        'Cache-Control': 's-maxage=600',
+      },
     };
   }
 
   const resp = await fetch(`https://raw.githubusercontent.com/${owner}/${repo}/${ref}/helix-index.yaml`);
+  if (resp.status !== 200) {
+    return {
+      statusCode: 404,
+      body: 'Index configuration does not exist',
+      headers: {
+        'Cache-Control': 's-maxage=600',
+      },
+    };
+  }
+
   const yamltext = await resp.text();
 
   const config = await new IndexConfig().withSource(yamltext).init();
