@@ -21,7 +21,7 @@ const { IndexConfig } = require('@adobe/helix-shared');
  * @param {string} name name of the person to greet
  * @returns {object} a greeting
  */
-async function main(params = {}) {
+async function main(params) {
   const cleanparams = Object.entries(params).reduce((clean, [key, value]) => {
     if (!key.startsWith('__')) {
       // eslint-disable-next-line no-param-reassign
@@ -31,7 +31,7 @@ async function main(params = {}) {
   }, {});
 
   const path = params.__ow_path || '';
-  const [index, query] = path.split('/');
+  const [, index, query] = path.split('/');
   /* eslint-disable no-underscore-dangle */
   const owner = params.__hlx_owner;
   const repo = params.__hlx_repo;
