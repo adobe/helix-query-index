@@ -20,7 +20,7 @@ const index = require('../src/index.js').main;
 describe('Index Tests', () => {
   it('index function is present', async () => {
     const result = await index({});
-    assert.deepEqual(result, { body: 'Hello, world.' });
+    assert.equal(result.statusCode, 404);
   });
 
   it('index function returns an object', async () => {

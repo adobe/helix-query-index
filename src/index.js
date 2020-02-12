@@ -13,15 +13,52 @@ const { wrap } = require('@adobe/openwhisk-action-utils');
 const { logger } = require('@adobe/openwhisk-action-logger');
 const { wrap: status } = require('@adobe/helix-status');
 const { epsagon } = require('@adobe/helix-epsagon');
+const { fetch } = require('@adobe/helix-fetch');
+const { IndexConfig } = require('@adobe/helix-shared');
 
 /**
  * This is the main function
  * @param {string} name name of the person to greet
  * @returns {object} a greeting
  */
-function main({ name = 'world' }) {
+async function main(params = {}) {
+  const cleanparams = Object.entries(params).reduce((clean, [key, value]) => {
+    if (!key.startsWith('__')) {
+      // eslint-disable-next-line no-param-reassign
+      clean[key] = value;
+    }
+    return clean;
+  }, {});
+
+  const path = params.__ow_path || '';
+  const [index, query] = path.split('/');
+  /* eslint-disable no-underscore-dangle */
+  const owner = params.__hlx_owner;
+  const repo = params.__hlx_repo;
+  const ref = params.__hlx_ref;
+  /* eslint-enable no-underscore-dangle */
+
+  if (!(index && query && owner && repo && ref)) {
+    return {
+      statusCode: 404,
+      body: 'Invalid index or query or missing owner, repo, and ref.',
+    };
+  }
+
+  const resp = await fetch(`https://raw.githubusercontent.com/${owner}/${repo}/${ref}/helix-index.yaml`);
+  const yamltext = await resp.text();
+
+  const config = await new IndexConfig().withSource(yamltext).init();
+
   return {
-    body: `Hello, ${name}.`,
+    statusCode: 307,
+    headers: {
+      // indexname, queryname, owner, repo, urlparams)
+      Location: config.getQueryURL(index, query, owner, repo, cleanparams),
+      'X-Content-Type': 'application/json',
+      'X-Static': 'Raw/Query',
+      'Cache-Control': `s-maxage=${config.getQueryCache(index, query)}`,
+    },
   };
 }
 
