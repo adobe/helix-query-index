@@ -52,7 +52,7 @@ describe('Post-Deploy Tests', () => {
       .then((response) => {
         console.log(response);
         expect(response).to.redirect;
-        expect(response).to.redirectTo('location', '/1/indexes/trieloff--helix-demo--blog-posts?query=*&filters=&page=1&hitsPerPage=25');
+        expect(response).to.redirectTo('/1/indexes/trieloff--helix-demo--blog-posts?query=*&filters=&page=1&hitsPerPage=25');
       })
       .catch((e) => {
         throw e;
