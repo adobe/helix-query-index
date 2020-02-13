@@ -22,6 +22,7 @@ const { IndexConfig } = require('@adobe/helix-shared');
  * @returns {object} a greeting
  */
 async function main(params) {
+  const { __ow_logger: log } = params;
   const cleanparams = Object.entries(params).reduce((clean, [key, value]) => {
     if (!key.startsWith('__')) {
       // eslint-disable-next-line no-param-reassign
@@ -39,6 +40,7 @@ async function main(params) {
   /* eslint-enable no-underscore-dangle */
 
   if (!(index && query && owner && repo && ref)) {
+    log.warn(`Missing parameters for ${index}/${query} and ${owner}/${repo}/${ref}`);
     return {
       statusCode: 404,
       body: 'Invalid index or query or missing owner, repo, and ref.',
@@ -50,6 +52,7 @@ async function main(params) {
 
   const resp = await fetch(`https://raw.githubusercontent.com/${owner}/${repo}/${ref}/helix-index.yaml`);
   if (resp.status !== 200) {
+    log.warn(`Missing index config for ${owner}/${repo}/${ref}`);
     return {
       statusCode: 404,
       body: 'Index configuration does not exist',
@@ -60,7 +63,6 @@ async function main(params) {
   }
 
   const yamltext = await resp.text();
-
   const config = await new IndexConfig().withSource(yamltext).init();
 
   return {

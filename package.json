@@ -19,7 +19,13 @@
   },
   "wsk": {
     "name": "helix-services-private/query-index@${version}",
-    "linksPackage": "helix-services"
+    "linksPackage": "helix-services",
+    "static": [
+      "./node_modules/@adobe/helix-shared/src/schemas/indexconfig.schema.json",
+      "./node_modules/@adobe/helix-shared/src/schemas/index.schema.json",
+      "./node_modules/@adobe/helix-shared/src/schemas/query.schema.json",
+      "./node_modules/@adobe/helix-shared/src/schemas/property.schema.json"
+    ]
   },
   "repository": {
     "type": "git",
@@ -42,14 +48,16 @@
   "devDependencies": {
     "@adobe/eslint-config-helix": "1.1.0",
     "@adobe/helix-ops": "1.4.0",
+    "@adobe/openwhisk-action-builder": "2.6.0",
     "@pollyjs/adapter-node-http": "4.0.3",
     "@pollyjs/core": "4.0.2",
     "@pollyjs/persister-fs": "4.0.2",
-    "@adobe/openwhisk-action-builder": "2.6.0",
     "@semantic-release/changelog": "3.0.6",
     "@semantic-release/exec": "4.0.0",
     "@semantic-release/git": "8.0.0",
     "ajv": "6.11.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "codecov": "3.6.2",
     "commitizen": "4.0.3",
     "cz-conventional-changelog": "3.0.2",
