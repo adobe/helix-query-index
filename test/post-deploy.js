@@ -11,6 +11,8 @@
  */
 
 /* eslint-env mocha */
+/* eslint-disable no-unused-expressions */
+
 const assert = require('assert');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
