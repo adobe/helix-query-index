@@ -41,7 +41,7 @@ describe('Post-Deploy Tests', () => {
   });
 
   it('All Blog Posts', async () => {
-    const path = '/blog-posts/all?__hlx_owner=trieloff&__hlx_repo=helix-demo&__hlx_ref=3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3';
+    const path = '/blog-posts/all?__hlx_owner=trieloff&__hlx_repo=helix-demo&__hlx_ref=ade6426d0ff01b543bfa06841bb184997924336a';
 
     await chai
       .request('https://adobeioruntime.net/')
