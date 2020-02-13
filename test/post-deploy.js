@@ -48,8 +48,8 @@ describe('Post-Deploy Tests', () => {
       .get(`${getbaseurl()}${path}`)
       .then((response) => {
         console.log(response);
-        expect(response).to.have.status(307);
-        expect(response.text).to.have.header('location', '/1/indexes/trieloff--helix-demo--blog-posts?query=*&filters=&page=1&hitsPerPage=25');
+        expect(response).to.redirect;
+        expect(response).to.redirectTo('location', '/1/indexes/trieloff--helix-demo--blog-posts?query=*&filters=&page=1&hitsPerPage=25');
       }).catch((e) => {
         throw e;
       });
