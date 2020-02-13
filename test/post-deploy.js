@@ -12,6 +12,23 @@
 
 /* eslint-env mocha */
 const assert = require('assert');
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const packjson = require('../package.json');
+
+chai.use(chaiHttp);
+const { expect } = chai;
+
+function getbaseurl() {
+  const namespace = 'helix';
+  const package = 'helix-services-private';
+  const name = packjson.name.replace('@adobe/helix-', '');
+  let version = `${packjson.version}`;
+  if (process.env.CI && process.env.CIRCLE_BUILD_NUM && process.env.CIRCLE_BRANCH !== 'master') {
+    version = `ci${process.env.CIRCLE_BUILD_NUM}`;
+  }
+  return `api/v1/web/${namespace}/${package}/${name}@${version}`;
+}
 
 describe('Post-Deploy Tests', () => {
   it('Service is ready for monitoring', () => {
@@ -19,5 +36,17 @@ describe('Post-Deploy Tests', () => {
       'I am ready to go on call for this',
       'I am ready to go on call for this',
     );
+  });
+
+  it('All Blog Posts', async () => {
+    await chai
+      .request('https://adobeioruntime.net/')
+      .get(`${getbaseurl()}/blog-posts/all?__hlx_owner=trieloff&hlx_repo=helix-demo&__hlx_ref=3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3`)
+      .then((response) => {
+        expect(response).to.have.status(307);
+        expect(response.text).to.have.header('location', '/1/indexes/trieloff--helix-demo--blog-posts?query=*&filters=&page=1&hitsPerPage=25');
+      }).catch((e) => {
+        throw e;
+      });
   });
 });
