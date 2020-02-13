@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/adobe/helix-query-index/compare/v1.1.0...v1.1.1) (2020-02-13)
+
+
+### Bug Fixes
+
+* **deploy:** fix package name ([c2156c3](https://github.com/adobe/helix-query-index/commit/c2156c3311e90d9741c0b23b08fea337ed22f79e))
+
 # [1.1.0](https://github.com/adobe/helix-query-index/compare/v1.0.0...v1.1.0) (2020-02-13)
 
 
