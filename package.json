@@ -33,8 +33,8 @@
   "homepage": "https://github.com/adobe/helix-query-index#readme",
   "dependencies": {
     "@adobe/helix-epsagon": "1.1.3",
-    "@adobe/helix-fetch": "^1.1.0",
-    "@adobe/helix-shared": "^5.2.0",
+    "@adobe/helix-fetch": "1.1.0",
+    "@adobe/helix-shared": "5.2.0",
     "@adobe/helix-status": "7.1.1",
     "@adobe/openwhisk-action-logger": "2.1.0",
     "@adobe/openwhisk-action-utils": "4.1.0"
@@ -42,9 +42,9 @@
   "devDependencies": {
     "@adobe/eslint-config-helix": "1.1.0",
     "@adobe/helix-ops": "1.4.0",
-    "@pollyjs/adapter-node-http": "^4.0.3",
-    "@pollyjs/core": "^4.0.2",
-    "@pollyjs/persister-fs": "^4.0.2",
+    "@pollyjs/adapter-node-http": "4.0.3",
+    "@pollyjs/core": "4.0.2",
+    "@pollyjs/persister-fs": "4.0.2",
     "@adobe/openwhisk-action-builder": "2.6.0",
     "@semantic-release/changelog": "3.0.6",
     "@semantic-release/exec": "4.0.0",
