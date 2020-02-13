@@ -63,6 +63,16 @@ describe('Helix-Demo Query Generation', () => {
     assert.equal(result.statusCode, 404);
   });
 
+  it('non-existing query looks good', async () => {
+    const result = await index({
+      __ow_path: '/blog-posts/unknown',
+      __hlx_owner: 'trieloff',
+      __hlx_repo: 'helix-demo',
+      __hlx_ref: '3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3',
+    });
+    assert.equal(result.statusCode, 404);
+  });
+
   it('all query URL looks good', async () => {
     const result = await index({
       __ow_path: '/blog-posts/all',

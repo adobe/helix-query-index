@@ -65,6 +65,18 @@ async function main(params) {
   const yamltext = await resp.text();
   const config = await new IndexConfig().withSource(yamltext).init();
 
+  const location = config.getQueryURL(index, query, owner, repo, cleanparams);
+  if (!location) {
+    log.warn(`Unknown query ${index}/${query} for ${owner}/${repo}/${ref}`);
+    return {
+      statusCode: 404,
+      body: 'Specified index not found in index configuration',
+      headers: {
+        'Cache-Control': 's-maxage=600',
+      },
+    };
+  }
+
   return {
     statusCode: 307,
     headers: {
