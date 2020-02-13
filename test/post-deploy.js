@@ -43,14 +43,11 @@ describe('Post-Deploy Tests', () => {
   it('All Blog Posts', async () => {
     const path = '/blog-posts/all?__hlx_owner=trieloff&__hlx_repo=helix-demo&__hlx_ref=3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3';
 
-    console.log(`https://adobeioruntime.net/${getbaseurl()}${path}`);
-
     await chai
       .request('https://adobeioruntime.net/')
       .get(`${getbaseurl()}${path}`)
       .redirects(0)
       .then((response) => {
-        console.log(response);
         expect(response).to.redirect;
         expect(response).to.redirectTo('/1/indexes/trieloff--helix-demo--blog-posts?query=*&filters=&page=1&hitsPerPage=25');
       })
