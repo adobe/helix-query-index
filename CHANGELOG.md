@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/adobe/helix-query-index/compare/v1.1.3...v1.1.4) (2020-02-13)
+
+
+### Bug Fixes
+
+* **index:** return 404 when query cannot be found ([b6ee182](https://github.com/adobe/helix-query-index/commit/b6ee1825dcb0ebb3480b2ac25ee5a592bffaabaa)), closes [#9](https://github.com/adobe/helix-query-index/issues/9)
+
 ## [1.1.3](https://github.com/adobe/helix-query-index/compare/v1.1.2...v1.1.3) (2020-02-13)
 
 
