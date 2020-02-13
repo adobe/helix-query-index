@@ -1,3 +1,16 @@
+# [1.1.0](https://github.com/adobe/helix-query-index/compare/v1.0.0...v1.1.0) (2020-02-13)
+
+
+### Bug Fixes
+
+* **index:** improve error handling for missing index config ([ee6f531](https://github.com/adobe/helix-query-index/commit/ee6f531dd5c07a64d7a74870e90a269c1d30c635))
+
+
+### Features
+
+* **index:** become prod-ready ([d8e79d7](https://github.com/adobe/helix-query-index/commit/d8e79d7d96ee3d4ea7e0dddb59a069a3ec184a27))
+* **index:** retrieve config and load index ([988dbcf](https://github.com/adobe/helix-query-index/commit/988dbcfbc5098110d448119a89f15ba069245f65))
+
 # 1.0.0 (2020-02-12)
 
 
