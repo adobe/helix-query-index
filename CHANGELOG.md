@@ -1,3 +1,12 @@
+## [1.1.3](https://github.com/adobe/helix-query-index/compare/v1.1.2...v1.1.3) (2020-02-13)
+
+
+### Bug Fixes
+
+* **deploy:** include required schema files ([ef9bead](https://github.com/adobe/helix-query-index/commit/ef9bead7adf6cb8cb387471c4c8e42d409c20dc4))
+* **deploy:** remove non-used files from package build ([f47e064](https://github.com/adobe/helix-query-index/commit/f47e0642eef12855ac851046a5a38f45ee4e007c))
+* **tests:** do not follow redirects ([246c49a](https://github.com/adobe/helix-query-index/commit/246c49a9b2f05a7823d84ec2b6c171a351ba0d5a))
+
 ## [1.1.2](https://github.com/adobe/helix-query-index/compare/v1.1.1...v1.1.2) (2020-02-13)
 
 
