@@ -72,10 +72,10 @@ jobs:
       # uncomment and adjust to enable monitoring
       # see https://circleci.com/orbs/registry/orb/adobe/helix-post-deploy
       # for more available parameters
-      - helix-post-deploy/monitoring:
-          statuspage_name: Helix Query Index
-          statuspage_group: Delivery
-          newrelic_group_policy: Delivery Repeated Failure
+      #- helix-post-deploy/monitoring:
+      #    statuspage_name: Helix Query Index
+      #    statuspage_group: Development
+      #    newrelic_group_policy: Development Repeated Failure
 
   branch-deploy:
     executor: node10
