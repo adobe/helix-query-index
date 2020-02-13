@@ -39,11 +39,13 @@ describe('Post-Deploy Tests', () => {
   });
 
   it('All Blog Posts', async () => {
-    console.log(`https://adobeioruntime.net/${getbaseurl()}/blog-posts/all?__hlx_owner=trieloff&hlx_repo=helix-demo&__hlx_ref=3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3`);
+    const path = '/blog-posts/all?__hlx_owner=trieloff&__hlx_repo=helix-demo&__hlx_ref=3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3';
+
+    console.log(`https://adobeioruntime.net/${getbaseurl()}${path}`);
 
     await chai
       .request('https://adobeioruntime.net/')
-      .get(`${getbaseurl()}/blog-posts/all?__hlx_owner=trieloff&hlx_repo=helix-demo&__hlx_ref=3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3`)
+      .get(`${getbaseurl()}${path}`)
       .then((response) => {
         expect(response).to.have.status(307);
         expect(response.text).to.have.header('location', '/1/indexes/trieloff--helix-demo--blog-posts?query=*&filters=&page=1&hitsPerPage=25');
