@@ -15,16 +15,80 @@
 'use strict';
 
 const assert = require('assert');
+const path = require('path');
+const NodeHttpAdapter = require('@pollyjs/adapter-node-http');
+const { setupMocha: setupPolly } = require('@pollyjs/core');
+const FSPersister = require('@pollyjs/persister-fs');
 const index = require('../src/index.js').main;
+
 
 describe('Index Tests', () => {
   it('index function is present', async () => {
     const result = await index({});
-    assert.deepEqual(result, { body: 'Hello, world.' });
+    assert.equal(result.statusCode, 404);
   });
 
   it('index function returns an object', async () => {
     const result = await index();
     assert.equal(typeof result, 'object');
+  });
+});
+
+describe('Helix-Demo Query Generation', () => {
+  setupPolly({
+    recordIfMissing: false,
+    recordFailedRequests: true,
+    logging: false,
+    adapters: [NodeHttpAdapter],
+    persister: FSPersister,
+    persisterOptions: {
+      fs: {
+        recordingsDir: path.resolve(__dirname, 'fixtures/recordings'),
+      },
+    },
+    matchRequestsBy: {
+      headers: {
+        exclude: ['user-agent'],
+      },
+    },
+  });
+
+  it('non-existing repo looks good', async () => {
+    const result = await index({
+      __ow_path: '/blog-posts/all',
+      __hlx_owner: 'trieloff',
+      __hlx_repo: 'helix-foo',
+      __hlx_ref: '3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3',
+    });
+    assert.equal(result.statusCode, 404);
+  });
+
+  it('all query URL looks good', async () => {
+    const result = await index({
+      __ow_path: '/blog-posts/all',
+      __hlx_owner: 'trieloff',
+      __hlx_repo: 'helix-demo',
+      __hlx_ref: '3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3',
+    });
+
+    assert.equal(result.statusCode, 307);
+    assert.equal(result.headers['X-Content-Type'], 'application/json');
+    assert.equal(result.headers['Cache-Control'], 's-maxage=600');
+    assert.equal(result.headers.Location, '/1/indexes/trieloff--helix-demo--blog-posts?query=*&filters=&page=1&hitsPerPage=25');
+  });
+
+  it('by-author query URL looks good', async () => {
+    const result = await index({
+      __ow_path: '/blog-posts/by-author',
+      __hlx_owner: 'trieloff',
+      __hlx_repo: 'helix-demo',
+      __hlx_ref: '3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3',
+      author: 'Lars',
+    });
+
+    assert.equal(result.statusCode, 307);
+    assert.equal(result.headers['X-Content-Type'], 'application/json');
+    assert.equal(result.headers['Cache-Control'], 's-maxage=300');
+    assert.equal(result.headers.Location, '/1/indexes/trieloff--helix-demo--blog-posts?query=*&filters=author%3ALars&page=1&hitsPerPage=25');
   });
 });
