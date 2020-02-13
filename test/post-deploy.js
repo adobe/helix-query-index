@@ -47,6 +47,7 @@ describe('Post-Deploy Tests', () => {
       .request('https://adobeioruntime.net/')
       .get(`${getbaseurl()}${path}`)
       .then((response) => {
+        console.log(response);
         expect(response).to.have.status(307);
         expect(response.text).to.have.header('location', '/1/indexes/trieloff--helix-demo--blog-posts?query=*&filters=&page=1&hitsPerPage=25');
       }).catch((e) => {
