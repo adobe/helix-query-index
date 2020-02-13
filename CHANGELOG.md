@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/adobe/helix-query-index/compare/v1.1.1...v1.1.2) (2020-02-13)
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([4720dc0](https://github.com/adobe/helix-query-index/commit/4720dc031686a1317562899d817d25275db69ca8))
+
 ## [1.1.1](https://github.com/adobe/helix-query-index/compare/v1.1.0...v1.1.1) (2020-02-13)
 
 
