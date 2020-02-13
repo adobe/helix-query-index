@@ -39,6 +39,8 @@ describe('Post-Deploy Tests', () => {
   });
 
   it('All Blog Posts', async () => {
+    console.log(`https://adobeioruntime.net/${getbaseurl()}/blog-posts/all?__hlx_owner=trieloff&hlx_repo=helix-demo&__hlx_ref=3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3`);
+
     await chai
       .request('https://adobeioruntime.net/')
       .get(`${getbaseurl()}/blog-posts/all?__hlx_owner=trieloff&hlx_repo=helix-demo&__hlx_ref=3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3`)
