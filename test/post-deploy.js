@@ -53,7 +53,8 @@ describe('Post-Deploy Tests', () => {
         console.log(response);
         expect(response).to.redirect;
         expect(response).to.redirectTo('location', '/1/indexes/trieloff--helix-demo--blog-posts?query=*&filters=&page=1&hitsPerPage=25');
-      }).catch((e) => {
+      })
+      .catch((e) => {
         throw e;
       });
   });
