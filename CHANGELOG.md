@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/adobe/helix-query-index/compare/v1.1.4...v1.1.5) (2020-02-13)
+
+
+### Bug Fixes
+
+* **config:** load the config from helix-query.yaml ([28788e3](https://github.com/adobe/helix-query-index/commit/28788e3442227f98289c88d47a7e182929b4db0a)), closes [#10](https://github.com/adobe/helix-query-index/issues/10)
+
 ## [1.1.4](https://github.com/adobe/helix-query-index/compare/v1.1.3...v1.1.4) (2020-02-13)
 
 
