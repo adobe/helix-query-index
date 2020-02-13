@@ -48,6 +48,7 @@ describe('Post-Deploy Tests', () => {
     await chai
       .request('https://adobeioruntime.net/')
       .get(`${getbaseurl()}${path}`)
+      .redirects(0)
       .then((response) => {
         console.log(response);
         expect(response).to.redirect;
