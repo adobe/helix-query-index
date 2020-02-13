@@ -36,7 +36,7 @@ describe('Index Tests', () => {
 
 describe('Helix-Demo Query Generation', () => {
   setupPolly({
-    recordIfMissing: false,
+    recordIfMissing: true,
     recordFailedRequests: true,
     logging: false,
     adapters: [NodeHttpAdapter],
@@ -68,7 +68,7 @@ describe('Helix-Demo Query Generation', () => {
       __ow_path: '/blog-posts/unknown',
       __hlx_owner: 'trieloff',
       __hlx_repo: 'helix-demo',
-      __hlx_ref: '3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3',
+      __hlx_ref: 'ade6426d0ff01b543bfa06841bb184997924336a',
     });
     assert.equal(result.statusCode, 404);
   });
@@ -78,7 +78,7 @@ describe('Helix-Demo Query Generation', () => {
       __ow_path: '/blog-posts/all',
       __hlx_owner: 'trieloff',
       __hlx_repo: 'helix-demo',
-      __hlx_ref: '3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3',
+      __hlx_ref: 'ade6426d0ff01b543bfa06841bb184997924336a',
     });
 
     assert.equal(result.statusCode, 307);
@@ -92,7 +92,7 @@ describe('Helix-Demo Query Generation', () => {
       __ow_path: '/blog-posts/by-author',
       __hlx_owner: 'trieloff',
       __hlx_repo: 'helix-demo',
-      __hlx_ref: '3aea5fd4cd4d40f5f7c6ce3d74c6f20999903cd3',
+      __hlx_ref: 'ade6426d0ff01b543bfa06841bb184997924336a',
       author: 'Lars',
     });
 

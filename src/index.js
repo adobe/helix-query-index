@@ -50,7 +50,7 @@ async function main(params) {
     };
   }
 
-  const resp = await fetch(`https://raw.githubusercontent.com/${owner}/${repo}/${ref}/helix-index.yaml`);
+  const resp = await fetch(`https://raw.githubusercontent.com/${owner}/${repo}/${ref}/helix-query.yaml`);
   if (resp.status !== 200) {
     log.warn(`Missing index config for ${owner}/${repo}/${ref}`);
     return {
