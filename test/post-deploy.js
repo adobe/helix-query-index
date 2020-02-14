@@ -49,7 +49,7 @@ describe('Post-Deploy Tests', () => {
       .redirects(0)
       .then((response) => {
         expect(response).to.redirect;
-        expect(response).to.redirectTo('/1/indexes/trieloff--helix-demo--blog-posts?query=*&filters=&page=1&hitsPerPage=25');
+        expect(response).to.redirectTo('/1/indexes/trieloff--helix-demo--blog-posts?query=*&hitsPerPage=25');
       })
       .catch((e) => {
         throw e;
