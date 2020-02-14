@@ -84,7 +84,7 @@ describe('Helix-Demo Query Generation', () => {
     assert.equal(result.statusCode, 307);
     assert.equal(result.headers['X-Content-Type'], 'application/json');
     assert.equal(result.headers['Cache-Control'], 's-maxage=600');
-    assert.equal(result.headers.Location, '/1/indexes/trieloff--helix-demo--blog-posts?query=*&filters=&page=1&hitsPerPage=25');
+    assert.equal(result.headers.Location, '/1/indexes/trieloff--helix-demo--blog-posts?query=*&hitsPerPage=25');
   });
 
   it('by-author query URL looks good', async () => {
@@ -99,6 +99,6 @@ describe('Helix-Demo Query Generation', () => {
     assert.equal(result.statusCode, 307);
     assert.equal(result.headers['X-Content-Type'], 'application/json');
     assert.equal(result.headers['Cache-Control'], 's-maxage=300');
-    assert.equal(result.headers.Location, '/1/indexes/trieloff--helix-demo--blog-posts?query=*&filters=author%3ALars&page=1&hitsPerPage=25');
+    assert.equal(result.headers.Location, '/1/indexes/trieloff--helix-demo--blog-posts?query=*&hitsPerPage=25&filters=author%3ALars');
   });
 });
