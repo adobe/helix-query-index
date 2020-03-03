@@ -29,7 +29,7 @@ const index = proxyquire('../src/index.js', {
   },
 }).main;
 
-describe.skip('Index Epsagon Tests', () => {
+describe('Index Epsagon Tests', () => {
   it('index function w/o token does not instrument epsagon', async () => {
     const expected = epsagonified;
     await index({});
