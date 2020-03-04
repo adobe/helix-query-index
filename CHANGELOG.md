@@ -1,3 +1,10 @@
+## [1.1.17](https://github.com/adobe/helix-query-index/compare/v1.1.16...v1.1.17) (2020-03-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/openwhisk-action-logger to v2.2.0 ([#31](https://github.com/adobe/helix-query-index/issues/31)) ([458d050](https://github.com/adobe/helix-query-index/commit/458d050eec79d8a1685e3e7efaec928479f35325))
+
 ## [1.1.16](https://github.com/adobe/helix-query-index/compare/v1.1.15...v1.1.16) (2020-03-03)
 
 
