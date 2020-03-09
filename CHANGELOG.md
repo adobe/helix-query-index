@@ -1,3 +1,10 @@
+## [1.1.20](https://github.com/adobe/helix-query-index/compare/v1.1.19...v1.1.20) (2020-03-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/openwhisk-action-utils to v4.2.2 ([8acf4b8](https://github.com/adobe/helix-query-index/commit/8acf4b87c1dde479e72d5b1f2cbba0c12d9bc980))
+
 ## [1.1.19](https://github.com/adobe/helix-query-index/compare/v1.1.18...v1.1.19) (2020-03-06)
 
 
