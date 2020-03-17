@@ -40,7 +40,7 @@
   "dependencies": {
     "@adobe/helix-epsagon": "1.1.7",
     "@adobe/helix-fetch": "1.4.0",
-    "@adobe/helix-shared": "6.0.3",
+    "@adobe/helix-shared": "6.0.4",
     "@adobe/helix-status": "7.1.2",
     "@adobe/openwhisk-action-logger": "2.2.0",
     "@adobe/openwhisk-action-utils": "4.2.2"
