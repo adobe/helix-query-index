@@ -18,8 +18,7 @@
     "deploy-ci": "wsk-builder -v --deploy --test=/_status_check/healthcheck.json --pkgVersion=ci$CIRCLE_BUILD_NUM -l ci"
   },
   "wsk": {
-    "name": "helix-services-private/query-index@${version}",
-    "linksPackage": "helix-services",
+    "name": "helix-services/query-index@${version}",
     "static": [
       "./node_modules/@adobe/helix-shared/src/schemas/indexconfig.schema.json",
       "./node_modules/@adobe/helix-shared/src/schemas/index.schema.json",
