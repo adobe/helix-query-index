@@ -1,3 +1,10 @@
+## [1.1.38](https://github.com/adobe/helix-query-index/compare/v1.1.37...v1.1.38) (2020-04-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-status to v7.1.3 ([#71](https://github.com/adobe/helix-query-index/issues/71)) ([9b44a24](https://github.com/adobe/helix-query-index/commit/9b44a24e9403bcc7dcbb68d5125bd774feff5cdd))
+
 ## [1.1.37](https://github.com/adobe/helix-query-index/compare/v1.1.36...v1.1.37) (2020-04-08)
 
 
