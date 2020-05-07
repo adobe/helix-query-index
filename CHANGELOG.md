@@ -1,3 +1,10 @@
+## [1.1.45](https://github.com/adobe/helix-query-index/compare/v1.1.44...v1.1.45) (2020-05-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-shared to v7.3.0 ([#88](https://github.com/adobe/helix-query-index/issues/88)) ([1cf24f7](https://github.com/adobe/helix-query-index/commit/1cf24f704c474e2218f03d677eea6c350c20566b))
+
 ## [1.1.44](https://github.com/adobe/helix-query-index/compare/v1.1.43...v1.1.44) (2020-05-07)
 
 
