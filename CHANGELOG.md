@@ -1,3 +1,10 @@
+## [1.1.58](https://github.com/adobe/helix-query-index/compare/v1.1.57...v1.1.58) (2020-06-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-epsagon to v1.3.7 ([#113](https://github.com/adobe/helix-query-index/issues/113)) ([8838781](https://github.com/adobe/helix-query-index/commit/88387818d0458b2d35bd4e64648661f1acc52250))
+
 ## [1.1.57](https://github.com/adobe/helix-query-index/compare/v1.1.56...v1.1.57) (2020-06-05)
 
 
