@@ -21,7 +21,6 @@ const { setupMocha: setupPolly } = require('@pollyjs/core');
 const FSPersister = require('@pollyjs/persister-fs');
 const index = require('../src/index.js').main;
 
-
 describe('Index Tests', () => {
   it('index function is present', async () => {
     const result = await index({});
