@@ -1,3 +1,10 @@
+## [1.1.83](https://github.com/adobe/helix-query-index/compare/v1.1.82...v1.1.83) (2020-08-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-status to v8.1.3 ([#164](https://github.com/adobe/helix-query-index/issues/164)) ([f43a54f](https://github.com/adobe/helix-query-index/commit/f43a54f00c255ccb96cc9241f067f3ac9429cd95))
+
 ## [1.1.82](https://github.com/adobe/helix-query-index/compare/v1.1.81...v1.1.82) (2020-08-11)
 
 
