@@ -13,8 +13,28 @@ const { wrap } = require('@adobe/openwhisk-action-utils');
 const { logger } = require('@adobe/openwhisk-action-logger');
 const { wrap: status } = require('@adobe/helix-status');
 const { epsagon } = require('@adobe/helix-epsagon');
+const { qb, load } = require('@adobe/helix-querybuilder');
 const { fetch } = require('@adobe/helix-fetch');
 const { IndexConfig } = require('@adobe/helix-shared');
+
+function getIndex(i, name) {
+  console.log(i, name);
+  const [myindex] = i.indices.filter((idx) => idx.name === name);
+  return myindex;
+}
+
+function getURL(target, query) {
+  if (target.match(/sharepoint\.com\//)) {
+    const embedurl = new URL('https://adobeioruntime.net/api/v1/web/helix/helix-services/data-embed@v1');
+
+    console.log(query);
+
+    return embedurl.href;
+  }
+  const url = new URL(target);
+
+  return url.href;
+}
 
 /**
  * This is the main function
@@ -64,6 +84,20 @@ async function main(params) {
 
   const yamltext = await resp.text();
   const config = await new IndexConfig().withSource(yamltext).init();
+
+  const quer = config.getQuery(index, query);
+  if (quer && typeof quer.query !== 'string') {
+    const qbl = load(quer.query);
+    return {
+      statusCode: 307,
+      headers: {
+        Location: getURL(getIndex(config, index).target, qbl),
+        'X-Content-Type': 'application/json',
+        'X-Static': 'Raw/Query',
+        'Cache-Control': `s-maxage=${config.getQueryCache(index, query)}`,
+      },
+    };
+  }
 
   const location = config.getQueryURL(index, query, owner, repo, cleanparams);
   if (!location) {
