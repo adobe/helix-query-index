@@ -13,27 +13,28 @@ const { wrap } = require('@adobe/openwhisk-action-utils');
 const { logger } = require('@adobe/openwhisk-action-logger');
 const { wrap: status } = require('@adobe/helix-status');
 const { epsagon } = require('@adobe/helix-epsagon');
-const { qb, load } = require('@adobe/helix-querybuilder');
+const { qb } = require('@adobe/helix-querybuilder');
 const { fetch } = require('@adobe/helix-fetch');
 const { IndexConfig } = require('@adobe/helix-shared');
 
 function getIndex(i, name) {
-  console.log(i, name);
   const [myindex] = i.indices.filter((idx) => idx.name === name);
   return myindex;
 }
 
-function getURL(target, query) {
-  if (target.match(/sharepoint\.com\//)) {
-    const embedurl = new URL('https://adobeioruntime.net/api/v1/web/helix/helix-services/data-embed@v1');
+function getURL(target, query, paramlist, params) {
+  const embedurl = new URL('https://adobeioruntime.net/api/v1/web/helix/helix-services/data-embed@v1');
 
-    console.log(query);
+  const searchparams = qb.url(query, 'hlx_');
+  searchparams.forEach((value, name) => {
+    searchparams.set(name, IndexConfig.evaluate(value, paramlist, params));
+  });
 
-    return embedurl.href;
-  }
-  const url = new URL(target);
+  searchparams.append('src', target);
 
-  return url.href;
+  embedurl.search = searchparams;
+
+  return embedurl.href;
 }
 
 /**
@@ -85,13 +86,17 @@ async function main(params) {
   const yamltext = await resp.text();
   const config = await new IndexConfig().withSource(yamltext).init();
 
-  const quer = config.getQuery(index, query);
-  if (quer && typeof quer.query !== 'string') {
-    const qbl = load(quer.query);
+  const i = getIndex(config, index);
+  const q = config.getQuery(index, query);
+  if (q
+    && typeof q.query !== 'string'
+    && i.target
+    && (i.target.match(/^https:\/\/docs\.google\.com\/spreadsheets\/d\/.*/)
+    || i.target.match(/^https:\/\/.*\.sharepoint\.com\//))) {
     return {
       statusCode: 307,
       headers: {
-        Location: getURL(getIndex(config, index).target, qbl),
+        Location: getURL(i.target, q.query, q.parameters, cleanparams),
         'X-Content-Type': 'application/json',
         'X-Static': 'Raw/Query',
         'Cache-Control': `s-maxage=${config.getQueryCache(index, query)}`,

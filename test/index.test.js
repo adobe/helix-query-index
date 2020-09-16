@@ -113,6 +113,6 @@ describe('Helix-Demo Query Generation', () => {
     assert.equal(result.statusCode, 307);
     assert.equal(result.headers['X-Content-Type'], 'application/json');
     assert.equal(result.headers['Cache-Control'], 's-maxage=300');
-    assert.equal(result.headers.Location, '/1/indexes/trieloff--helix-demo--blog-posts?query=*&hitsPerPage=25&filters=author%3ALars');
+    assert.equal(result.headers.Location, 'https://adobeioruntime.net/api/v1/web/helix/helix-services/data-embed@v1?hlx_group.p.or=false&hlx_group.1_property.property=author&hlx_group.1_property.value=Lars&src=https%3A%2F%2Fadobe.sharepoint.com%2F%3Ax%3A%2Fr%2Fsites%2FTheBlog%2FShared%2520Documents%2Ftheblog%2Fen%2Fquery-index.xlsx%3Fd%3Dwe7bf6b3af3234076968b30a1565f2373%26csf%3D1%26web%3D1%26e%3Dq9o8tW');
   });
 });
