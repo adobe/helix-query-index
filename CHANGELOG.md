@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/adobe/helix-query-index/compare/v1.1.92...v1.2.0) (2020-09-21)
+
+
+### Features
+
+* **querybuilder:** add querybuilder support for google and excel ([0e2e5d3](https://github.com/adobe/helix-query-index/commit/0e2e5d35625364c086d1acac2064dee03e4eed65))
+
 ## [1.1.92](https://github.com/adobe/helix-query-index/compare/v1.1.91...v1.1.92) (2020-09-21)
 
 
