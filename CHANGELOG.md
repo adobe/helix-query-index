@@ -1,3 +1,59 @@
+## [1.1.92](https://github.com/adobe/helix-query-index/compare/v1.1.91...v1.1.92) (2020-09-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-status to v8.2.0 ([#186](https://github.com/adobe/helix-query-index/issues/186)) ([7c35d4f](https://github.com/adobe/helix-query-index/commit/7c35d4f5d12b3061e471d6149a741eecd9bb9a65))
+
+## [1.1.91](https://github.com/adobe/helix-query-index/compare/v1.1.90...v1.1.91) (2020-09-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-epsagon to v1.5.2 ([#182](https://github.com/adobe/helix-query-index/issues/182)) ([d8fc4ba](https://github.com/adobe/helix-query-index/commit/d8fc4ba1f67e75511c1037e40c0b10e6cda3cce4))
+
+## [1.1.90](https://github.com/adobe/helix-query-index/compare/v1.1.89...v1.1.90) (2020-09-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-shared to v7.13.0 ([#179](https://github.com/adobe/helix-query-index/issues/179)) ([81b1127](https://github.com/adobe/helix-query-index/commit/81b112754c64fc1bf9ca5857d5e3e8e99cb37485))
+
+## [1.1.89](https://github.com/adobe/helix-query-index/compare/v1.1.88...v1.1.89) (2020-09-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-shared to v7.12.0 ([#178](https://github.com/adobe/helix-query-index/issues/178)) ([e1474f9](https://github.com/adobe/helix-query-index/commit/e1474f9e0c425a8ad15df64e5992a89581a0e13b))
+
+## [1.1.88](https://github.com/adobe/helix-query-index/compare/v1.1.87...v1.1.88) (2020-09-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/openwhisk-action-utils to v4.3.0 ([#176](https://github.com/adobe/helix-query-index/issues/176)) ([325c2e4](https://github.com/adobe/helix-query-index/commit/325c2e4bcc834b9b041c83136b62f779b1b43cff))
+
+## [1.1.87](https://github.com/adobe/helix-query-index/compare/v1.1.86...v1.1.87) (2020-09-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-epsagon to v1.5.1 ([#175](https://github.com/adobe/helix-query-index/issues/175)) ([5180abc](https://github.com/adobe/helix-query-index/commit/5180abc28e2dad3b60f46cf994992ad2472fe74f))
+
+## [1.1.86](https://github.com/adobe/helix-query-index/compare/v1.1.85...v1.1.86) (2020-08-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-shared to v7.11.0 ([#172](https://github.com/adobe/helix-query-index/issues/172)) ([05f2f84](https://github.com/adobe/helix-query-index/commit/05f2f8479bfe655510b7300c55ee5fcb7cef1b92))
+
+## [1.1.85](https://github.com/adobe/helix-query-index/compare/v1.1.84...v1.1.85) (2020-08-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-epsagon to v1.5.0 ([53175a9](https://github.com/adobe/helix-query-index/commit/53175a9ae38d863133733c8d4c41c5ee0a975b62))
+
 ## [1.1.84](https://github.com/adobe/helix-query-index/compare/v1.1.83...v1.1.84) (2020-08-25)
 
 
