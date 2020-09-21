@@ -13,8 +13,29 @@ const { wrap } = require('@adobe/openwhisk-action-utils');
 const { logger } = require('@adobe/openwhisk-action-logger');
 const { wrap: status } = require('@adobe/helix-status');
 const { epsagon } = require('@adobe/helix-epsagon');
+const { qb } = require('@adobe/helix-querybuilder');
 const { fetch } = require('@adobe/helix-fetch');
 const { IndexConfig } = require('@adobe/helix-shared');
+
+function getIndex(i, name) {
+  const [myindex] = i.indices.filter((idx) => idx.name === name);
+  return myindex;
+}
+
+function getURL(target, query, paramlist, params) {
+  const embedurl = new URL('https://adobeioruntime.net/api/v1/web/helix/helix-services/data-embed@v1');
+
+  const searchparams = qb.url(query, 'hlx_');
+  searchparams.forEach((value, name) => {
+    searchparams.set(name, IndexConfig.evaluate(value, paramlist, params));
+  });
+
+  searchparams.append('src', target);
+
+  embedurl.search = searchparams;
+
+  return embedurl.href;
+}
 
 /**
  * This is the main function
@@ -64,6 +85,24 @@ async function main(params) {
 
   const yamltext = await resp.text();
   const config = await new IndexConfig().withSource(yamltext).init();
+
+  const i = getIndex(config, index);
+  const q = config.getQuery(index, query);
+  if (q
+    && typeof q.query !== 'string'
+    && i.target
+    && (i.target.match(/^https:\/\/docs\.google\.com\/spreadsheets\/d\/.*/)
+    || i.target.match(/^https:\/\/.*\.sharepoint\.com\//))) {
+    return {
+      statusCode: 307,
+      headers: {
+        Location: getURL(i.target, q.query, q.parameters, cleanparams),
+        'X-Content-Type': 'application/json',
+        'X-Static': 'Raw/Query',
+        'Cache-Control': `s-maxage=${config.getQueryCache(index, query)}`,
+      },
+    };
+  }
 
   const location = config.getQueryURL(index, query, owner, repo, cleanparams);
   if (!location) {
