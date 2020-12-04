@@ -1,3 +1,10 @@
+## [1.2.15](https://github.com/adobe/helix-query-index/compare/v1.2.14...v1.2.15) (2020-12-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-shared to v7.16.4 ([#214](https://github.com/adobe/helix-query-index/issues/214)) ([cb00acd](https://github.com/adobe/helix-query-index/commit/cb00acd3793c59afbed374972081d44985af3873))
+
 ## [1.2.14](https://github.com/adobe/helix-query-index/compare/v1.2.13...v1.2.14) (2020-12-02)
 
 
