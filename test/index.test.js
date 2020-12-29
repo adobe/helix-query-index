@@ -28,7 +28,7 @@ describe('Index Tests', () => {
   });
 
   it('index function returns an object', async () => {
-    const result = await index();
+    const result = await index({});
     assert.equal(typeof result, 'object');
   });
 });
