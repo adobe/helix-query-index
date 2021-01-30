@@ -1,3 +1,10 @@
+## [1.2.32](https://github.com/adobe/helix-query-index/compare/v1.2.31...v1.2.32) (2021-01-30)
+
+
+### Bug Fixes
+
+* **ci:** use latest orb ([7458733](https://github.com/adobe/helix-query-index/commit/7458733619c307339d02ca8a03f4869448598758))
+
 ## [1.2.31](https://github.com/adobe/helix-query-index/compare/v1.2.30...v1.2.31) (2021-01-30)
 
 
