@@ -1,3 +1,10 @@
+## [1.2.36](https://github.com/adobe/helix-query-index/compare/v1.2.35...v1.2.36) (2021-02-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-status to v9.0.1 ([#247](https://github.com/adobe/helix-query-index/issues/247)) ([df53eb7](https://github.com/adobe/helix-query-index/commit/df53eb7683d30fd9d32ed68de1c63625f98bf22d))
+
 ## [1.2.35](https://github.com/adobe/helix-query-index/compare/v1.2.34...v1.2.35) (2021-02-01)
 
 
