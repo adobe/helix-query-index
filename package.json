@@ -40,14 +40,14 @@
     "@adobe/helix-epsagon": "1.5.8",
     "@adobe/helix-fetch": "1.9.2",
     "@adobe/helix-querybuilder": "1.5.0",
-    "@adobe/helix-shared": "7.19.5",
+    "@adobe/helix-shared": "7.19.6",
     "@adobe/helix-status": "9.0.2",
     "@adobe/openwhisk-action-logger": "2.3.1",
     "@adobe/openwhisk-action-utils": "4.4.0"
   },
   "devDependencies": {
     "@adobe/eslint-config-helix": "1.1.3",
-    "@adobe/openwhisk-action-builder": "3.0.8",
+    "@adobe/openwhisk-action-builder": "3.0.9",
     "@pollyjs/adapter-node-http": "5.1.0",
     "@pollyjs/core": "5.1.0",
     "@pollyjs/persister-fs": "5.0.0",
