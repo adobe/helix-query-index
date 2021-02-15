@@ -11,8 +11,7 @@
  */
 
 /* eslint-env mocha */
-
-'use strict';
+process.env.HELIX_FETCH_FORCE_HTTP1 = true;
 
 const assert = require('assert');
 const path = require('path');
@@ -35,7 +34,7 @@ describe('Index Tests', () => {
 
 describe('Helix-Demo Query Generation', () => {
   setupPolly({
-    recordIfMissing: true,
+    recordIfMissing: false,
     recordFailedRequests: true,
     logging: false,
     adapters: [NodeHttpAdapter],

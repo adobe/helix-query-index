@@ -14,8 +14,17 @@ const { logger } = require('@adobe/openwhisk-action-logger');
 const { wrap: status } = require('@adobe/helix-status');
 const { epsagon } = require('@adobe/helix-epsagon');
 const { qb } = require('@adobe/helix-querybuilder');
-const { fetch } = require('@adobe/helix-fetch');
+const fetchAPI = require('@adobe/helix-fetch');
 const { IndexConfig } = require('@adobe/helix-shared');
+
+const { fetch } = process.env.HELIX_FETCH_FORCE_HTTP1
+  /* istanbul ignore next */
+  ? fetchAPI.context({
+    userAgent: 'helix-fetch', // static user-agent for recorded tests
+    alpnProtocols: [fetchAPI.ALPN_HTTP1_1],
+  })
+  /* istanbul ignore next */
+  : fetchAPI;
 
 function getIndex(i, name) {
   const [myindex] = i.indices.filter((idx) => idx.name === name);
