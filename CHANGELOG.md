@@ -1,3 +1,10 @@
+## [1.2.42](https://github.com/adobe/helix-query-index/compare/v1.2.41...v1.2.42) (2021-02-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-fetch to v2.1.5 ([#259](https://github.com/adobe/helix-query-index/issues/259)) ([502ebae](https://github.com/adobe/helix-query-index/commit/502ebaeee58ccc23220d30ab2698cd7b7b79331e))
+
 ## [1.2.41](https://github.com/adobe/helix-query-index/compare/v1.2.40...v1.2.41) (2021-02-15)
 
 
