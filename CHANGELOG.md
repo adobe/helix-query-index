@@ -1,3 +1,10 @@
+## [1.2.76](https://github.com/adobe/helix-query-index/compare/v1.2.75...v1.2.76) (2021-04-03)
+
+
+### Bug Fixes
+
+* **deps:** update adobe fixes ([#303](https://github.com/adobe/helix-query-index/issues/303)) ([0eaec78](https://github.com/adobe/helix-query-index/commit/0eaec78a22e4679c525081d9ba483419b6a6e72c))
+
 ## [1.2.75](https://github.com/adobe/helix-query-index/compare/v1.2.74...v1.2.75) (2021-04-03)
 
 
