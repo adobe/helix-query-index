@@ -1,3 +1,10 @@
+## [1.2.90](https://github.com/adobe/helix-query-index/compare/v1.2.89...v1.2.90) (2021-04-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-shared to v7.27.0 ([#319](https://github.com/adobe/helix-query-index/issues/319)) ([a5603c9](https://github.com/adobe/helix-query-index/commit/a5603c9078bc93d5a9a51945b441098915302d24))
+
 ## [1.2.89](https://github.com/adobe/helix-query-index/compare/v1.2.88...v1.2.89) (2021-04-20)
 
 
