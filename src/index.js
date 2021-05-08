@@ -9,13 +9,13 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-const { wrap } = require('@adobe/openwhisk-action-utils');
+const wrap = require('@adobe/helix-shared-wrap');
 const { logger } = require('@adobe/openwhisk-action-logger');
 const { wrap: status } = require('@adobe/helix-status');
 const { epsagon } = require('@adobe/helix-epsagon');
 const { qb } = require('@adobe/helix-querybuilder');
 const fetchAPI = require('@adobe/helix-fetch');
-const { IndexConfig } = require('@adobe/helix-shared');
+const { IndexConfig } = require('@adobe/helix-shared-config');
 
 const { fetch } = process.env.HELIX_FETCH_FORCE_HTTP1
   /* istanbul ignore next */
