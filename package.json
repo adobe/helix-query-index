@@ -10,8 +10,6 @@
     "test-postdeploy": "mocha --reporter xunit --reporter-options output=./junit/test-results.xml -g 'Post-Deploy'",
     "lint": "./node_modules/.bin/eslint .",
     "semantic-release": "semantic-release",
-    "docs": "npx jsdoc2md -c .jsdoc.json --files 'src/*.js'  > docs/API.md",
-    "commit": "git-cz",
     "build": "wsk-builder -v",
     "deploy": "wsk-builder -v --deploy --test=/_status_check/healthcheck.json",
     "deploy-sequences": "wsk-builder --no-build -no-hints -l latest -l major -l minor",
@@ -20,10 +18,10 @@
   "wsk": {
     "name": "helix-services/query-index@${version}",
     "static": [
-      "./node_modules/@adobe/helix-shared/src/schemas/indexconfig.schema.json",
-      "./node_modules/@adobe/helix-shared/src/schemas/index.schema.json",
-      "./node_modules/@adobe/helix-shared/src/schemas/query.schema.json",
-      "./node_modules/@adobe/helix-shared/src/schemas/property.schema.json"
+      "./node_modules/@adobe/helix-shared-config/src/schemas/indexconfig.schema.json",
+      "./node_modules/@adobe/helix-shared-config/src/schemas/index.schema.json",
+      "./node_modules/@adobe/helix-shared-config/src/schemas/query.schema.json",
+      "./node_modules/@adobe/helix-shared-config/src/schemas/property.schema.json"
     ]
   },
   "repository": {
@@ -40,10 +38,10 @@
     "@adobe/helix-epsagon": "1.6.4",
     "@adobe/helix-fetch": "2.2.0",
     "@adobe/helix-querybuilder": "1.5.0",
-    "@adobe/helix-shared": "8.0.5",
+    "@adobe/helix-shared-config": "1.0.3",
+    "@adobe/helix-shared-wrap": "1.0.0",
     "@adobe/helix-status": "9.1.6",
-    "@adobe/openwhisk-action-logger": "2.4.4",
-    "@adobe/openwhisk-action-utils": "4.4.4"
+    "@adobe/openwhisk-action-logger": "2.4.4"
   },
   "devDependencies": {
     "@adobe/eslint-config-helix": "1.1.4",
@@ -57,12 +55,10 @@
     "chai": "4.3.4",
     "chai-http": "4.3.0",
     "codecov": "3.8.1",
-    "commitizen": "4.2.3",
-    "cz-conventional-changelog": "3.3.0",
     "eslint": "7.25.0",
     "eslint-plugin-header": "3.1.1",
     "eslint-plugin-import": "2.22.1",
-    "jsdoc-to-markdown": "7.0.1",
+    "ghooks": "2.0.4",
     "junit-report-builder": "3.0.0",
     "lint-staged": "10.5.4",
     "mocha": "8.3.2",
@@ -74,9 +70,6 @@
     "*.js": "eslint"
   },
   "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    },
     "ghooks": {
       "pre-commit": "npx lint-staged"
     }
