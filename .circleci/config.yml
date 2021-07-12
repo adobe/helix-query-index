@@ -69,10 +69,6 @@ jobs:
       - run:
           name: Link Sequences
           command: npm run deploy-sequences
-      # uncomment and adjust to enable monitoring
-      # see https://circleci.com/orbs/registry/orb/adobe/helix-post-deploy
-      # for more available parameters
-      - helix-post-deploy/monitoring
 
   branch-deploy:
     executor: node12
