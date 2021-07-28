@@ -1,6 +1,6 @@
 {
   "name": "@adobe/helix-query-index",
-  "version": "1.2.110",
+  "version": "1.2.111",
   "private": true,
   "description": "Helix Query Index",
   "main": "src/index.js",
