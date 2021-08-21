@@ -1,3 +1,10 @@
+## [1.2.120](https://github.com/adobe/helix-query-index/compare/v1.2.119...v1.2.120) (2021-08-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-shared-config to v1.2.1 ([#376](https://github.com/adobe/helix-query-index/issues/376)) ([b729896](https://github.com/adobe/helix-query-index/commit/b729896fd54b5bfabf909d69105681a08d902cd2))
+
 ## [1.2.119](https://github.com/adobe/helix-query-index/compare/v1.2.118...v1.2.119) (2021-08-19)
 
 
