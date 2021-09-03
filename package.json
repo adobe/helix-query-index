@@ -41,7 +41,7 @@
     "@adobe/helix-shared-config": "1.2.3",
     "@adobe/helix-shared-wrap": "1.0.0",
     "@adobe/helix-status": "9.2.2",
-    "@adobe/openwhisk-action-logger": "2.4.4"
+    "@adobe/openwhisk-action-logger": "2.4.5"
   },
   "devDependencies": {
     "@adobe/eslint-config-helix": "1.1.5",
